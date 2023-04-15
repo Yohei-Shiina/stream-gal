@@ -137,7 +137,7 @@ function HomePage() {
             type="submit"
             disabled={isStreaming || isError}
             className="form-input chat-container__form-submit"
-            value="talk"
+            value="話す"
           />
         </form>
         <div ref={messageListRef} className="chat-container__history">
@@ -155,6 +155,17 @@ function HomePage() {
           })}
         </div>
       </div>
+
+      <ul className="description-list">
+        <li className="description-list__item">
+          ギャル風に話します。教育はほとんど受けていません、
+        </li>
+        <li className="description-list__item">
+          基本ネガティブでだるそうに話しますが、フレンドリーです。
+        </li>
+        <li className="description-list__item">全てを消しゴムマジックで消そうとします</li>
+        <li className="description-list__item">※APIに上限があるので、使えない時はごめんなさい。</li>
+      </ul>
     </div>
   );
 }
