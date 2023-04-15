@@ -7,12 +7,12 @@ body {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 10%;
   padding: 20px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .service-name {
@@ -41,6 +41,7 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 30px;
+  width: 100%;
 }
 
 .chat-container__form {
@@ -63,6 +64,11 @@ body {
   border-radius: 0 10px 10px 0;
   background: linear-gradient(45deg, rgb(253, 114, 227), rgb(251, 255, 189));
   cursor: pointer;
+}
+
+.chat-container__history {
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 .message {
