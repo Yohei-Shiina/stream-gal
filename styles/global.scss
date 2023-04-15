@@ -1,6 +1,8 @@
 body {
   background: linear-gradient(45deg, yellow, pink, purple);
   background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .container {
   position: absolute;
