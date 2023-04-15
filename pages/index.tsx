@@ -64,6 +64,7 @@ function HomePage() {
     const decoder = new TextDecoderStream();
     const reader = response.body.pipeThrough(decoder).getReader();
 
+    let incompleteStr = "";
     const readStream = async () => {
       const { value, done } = await reader.read();
 
@@ -73,7 +74,7 @@ function HomePage() {
       }
 
       const splittedData = value.split("\n\n").filter(Boolean);
-      console.log(splittedData);
+      // console.log(splittedData);
 
       for (const data of splittedData) {
         const textData = data.replace("data: ", "");
@@ -84,9 +85,16 @@ function HomePage() {
         }
 
         let parsedData;
+        console.log({ incompleteStr });
         console.log({ textData });
 
-        parsedData = JSON.parse(textData);
+        try {
+          const json = incompleteStr ? incompleteStr + textData : textData;
+          parsedData = JSON.parse(json);
+          incompleteStr = "";
+        } catch (error) {
+          incompleteStr = textData;
+        }
 
         if (parsedData.error) {
           console.error(parsedData.error.message);
