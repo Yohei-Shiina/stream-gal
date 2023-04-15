@@ -27,9 +27,17 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
+.description-list {
+  color: #a1a1a1;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+.description-list__item {
+  text-align: left;
+}
 .chat-container {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -39,6 +47,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 30px;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .chat-container__form {
