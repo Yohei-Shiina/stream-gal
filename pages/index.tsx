@@ -5,10 +5,21 @@ function HomePage() {
   const [messages, setMessages] = useState<{ from: "gal" | "mine"; content: string }[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [remainingTime, setRemainingTime] = useState(20);
 
   const timeoutIdRef = useRef<NodeJS.Timeout>();
-  const countdownIdRef = useRef<NodeJS.Timeout>();
+  const messageListRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    const messageList = messageListRef.current;
+    if (messageList !== null) {
+      messageList.scrollTop = messageList.scrollHeight;
+    }
+  }, [messages]);
 
   useEffect(() => {
     if (isError) {
@@ -16,14 +27,8 @@ function HomePage() {
         setIsError(false);
       }, 20000);
 
-      countdownIdRef.current = setInterval(() => {
-        setRemainingTime((prev) => prev - 1);
-      }, 1000);
-
       return () => {
         clearTimeout(timeoutIdRef.current);
-        clearTimeout(countdownIdRef.current);
-        setRemainingTime(20);
       };
     }
   }, [isError]);
@@ -116,14 +121,14 @@ function HomePage() {
   return (
     <div className="container">
       <div className="service-name">すとり〜む ぎゃる</div>
-      <p>{isError && remainingTime}</p>
       <div className="chat-container">
         <form className="chat-container__form" onSubmit={handleSubmit}>
           <input
+            ref={inputRef}
             type="text"
             className="form-input chat-container__form-input"
             name="userInput"
-            placeholder="暇じゃない？なんか話して！"
+            placeholder="自撮りの話して！"
             value={userInput}
             onChange={handleChange}
             disabled={isError}
@@ -135,18 +140,20 @@ function HomePage() {
             value="talk"
           />
         </form>
-        {messages.map((message, index) => {
-          return (
-            <div key={index} className={`message chat-container__message--${message.from}`}>
-              <p className="message__text">
-                <span className="message-gal">
-                  {message.from === "gal" ? "ぎゃる" : "あなた"}：
-                </span>
-                {message.content}
-              </p>
-            </div>
-          );
-        })}
+        <div ref={messageListRef} className="chat-container__history">
+          {messages.map((message, index) => {
+            return (
+              <div key={index} className={`message chat-container__message--${message.from}`}>
+                <p className="message__text">
+                  <span className="message-gal">
+                    {message.from === "gal" ? "ぎゃる" : "あなた"}：
+                  </span>
+                  {message.content}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
