@@ -73,6 +73,7 @@ function HomePage() {
       }
 
       const splittedData = value.split("\n\n").filter(Boolean);
+      console.log(splittedData);
 
       for (const data of splittedData) {
         const textData = data.replace("data: ", "");
@@ -83,6 +84,7 @@ function HomePage() {
         }
 
         let parsedData;
+        console.log({ textData });
 
         parsedData = JSON.parse(textData);
 
