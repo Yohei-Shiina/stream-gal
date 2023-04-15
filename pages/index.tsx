@@ -74,7 +74,6 @@ function HomePage() {
       }
 
       const splittedData = value.split("\n\n").filter(Boolean);
-      // console.log(splittedData);
 
       for (const data of splittedData) {
         const textData = data.replace("data: ", "");
@@ -85,8 +84,6 @@ function HomePage() {
         }
 
         let parsedData;
-        console.log({ incompleteStr });
-        console.log({ textData });
 
         try {
           const json = incompleteStr ? incompleteStr + textData : textData;
@@ -98,7 +95,6 @@ function HomePage() {
         }
 
         if (parsedData.error) {
-          console.error(parsedData.error.message);
           setMessages((prev) => {
             prev[prev.length - 1].content =
               "20秒くらい黙らないと消しゴムマジックで消してやるぞ〜、へへっ";
