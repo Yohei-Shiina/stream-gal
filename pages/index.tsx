@@ -158,13 +158,17 @@ function HomePage() {
 
       <ul className="description-list">
         <li className="description-list__item">
-          ギャル風に話します。教育はほとんど受けていません、
+          ギャル風に話します。教育はほとんど受けていません。
         </li>
         <li className="description-list__item">
-          基本ネガティブでだるそうに話しますが、フレンドリーです。
+          ネガティブでだるそうに話しますが、実はフレンドリーです。
         </li>
         <li className="description-list__item">全てを消しゴムマジックで消そうとします。</li>
-        <li className="description-list__item">※APIに上限があるので、使えない時はごめんなさい。</li>
+        <li className="description-list__item">過去の会話を覚えてくれません。</li>
+        <li className="description-list__item">
+          APIの使用上限があるので、使えない時はごめんなさい。
+        </li>
+        <li className="description-list__item--important">※個人情報は入れないでね。</li>
       </ul>
     </div>
   );
