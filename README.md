@@ -37,8 +37,8 @@ pnpm dev
 `pages/index.tsx` や `pages/api/stream-chat.tsx`を編集することでページを編集できます。ファイルを編集するとページが自動更新されます。
 
 # リポジトリで使用している OpenAI API については、以下のリソースをご覧ください：
-https://platform.openai.com/docs/guides/chat
-https://platform.openai.com/docs/api-reference/chat/create?lang=curl
+- https://platform.openai.com/docs/guides/chat
+- https://platform.openai.com/docs/api-reference/chat/create?lang=curl
 
 # このプロジェクトでは以下のものを使用しています：
 Next.js
