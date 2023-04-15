@@ -94,6 +94,7 @@ function HomePage() {
           incompleteStr = "";
         } catch (error) {
           incompleteStr = textData;
+          break;
         }
 
         if (parsedData.error) {
