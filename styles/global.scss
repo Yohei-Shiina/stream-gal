@@ -35,8 +35,8 @@ body {
   font-size: 13px;
   margin-bottom: 15px;
 }
-.description-list__item {
-  text-align: left;
+.description-list__item--important {
+  color: rgb(0, 0, 0);
 }
 .chat-container {
   background: rgba(255, 255, 255, 0.25);
@@ -73,8 +73,24 @@ body {
 }
 
 .chat-container__history {
-  max-height: 300px;
+  max-height: 300;
   overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+  }
+
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 }
 
 .message {
