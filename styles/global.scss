@@ -75,7 +75,7 @@ body {
 }
 
 .chat-container__history {
-  max-height: 100px;
+  max-height: 300px;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
