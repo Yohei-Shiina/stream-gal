@@ -135,7 +135,7 @@ function HomePage() {
           />
           <input
             type="submit"
-            disabled={isStreaming || isError}
+            disabled={!userInput || isStreaming || isError}
             className="form-input chat-container__form-submit"
             value="話す"
           />
@@ -163,7 +163,7 @@ function HomePage() {
         <li className="description-list__item">
           基本ネガティブでだるそうに話しますが、フレンドリーです。
         </li>
-        <li className="description-list__item">全てを消しゴムマジックで消そうとします</li>
+        <li className="description-list__item">全てを消しゴムマジックで消そうとします。</li>
         <li className="description-list__item">※APIに上限があるので、使えない時はごめんなさい。</li>
       </ul>
     </div>
