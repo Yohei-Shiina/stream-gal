@@ -67,14 +67,21 @@ function HomePage() {
     let incompleteStr = "";
     const readStream = async () => {
       const { value, done } = await reader.read();
-      console.log(value);
+      console.log({ value });
 
       if (done) {
-        setIsStreaming(false);
         return;
       }
 
       const splittedData = value.split("\n\n").filter(Boolean);
+
+      console.log({ splittedData });
+      console.log({ incompleteStr });
+
+      if (incompleteStr) {
+        splittedData[0] = incompleteStr + splittedData[0];
+        incompleteStr = "";
+      }
 
       for (const data of splittedData) {
         const textData = data.replace("data: ", "");
@@ -87,12 +94,10 @@ function HomePage() {
         let parsedData;
 
         try {
-          const json = incompleteStr ? incompleteStr + textData : textData;
-          parsedData = JSON.parse(json);
-          incompleteStr = "";
+          parsedData = JSON.parse(textData);
         } catch (error) {
           incompleteStr = textData;
-          break;
+          continue;
         }
 
         if (parsedData.error) {
