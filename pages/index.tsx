@@ -67,7 +67,6 @@ function HomePage() {
     let incompleteStr = "";
     const readStream = async () => {
       const { value, done } = await reader.read();
-      console.log(value);
 
       if (done) {
         setIsStreaming(false);
@@ -92,7 +91,7 @@ function HomePage() {
           incompleteStr = "";
         } catch (error) {
           incompleteStr = textData;
-          break;
+          continue;
         }
 
         if (parsedData.error) {
