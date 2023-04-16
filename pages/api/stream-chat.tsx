@@ -31,7 +31,7 @@ const handler = async (req: NextRequest): Promise<Response> => {
     return new Response("Method Not Allowed", { status: 405 });
   }
   const { prompt } = await req.json();
-
+  console.info({ prompt });
   const payload = {
     model: "gpt-3.5-turbo",
     messages: generateMessages(prompt),
